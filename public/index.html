@@ -6,6 +6,14 @@
   <script src="bundle.js" async></script>
 </head>
 <body>
-  <h1 data-controller="example"></h1>
+  <div data-controller="slideshow">
+    <button data-action="slideshow#previous">←</button>
+    <button data-action="slideshow#next">→</button>
+
+    <div data-target="slideshow.slide" class="slide">🐵</div>
+    <div data-target="slideshow.slide" class="slide">🙈</div>
+    <div data-target="slideshow.slide" class="slide">🙉</div>
+    <div data-target="slideshow.slide" class="slide">🙊</div>
+  </div>
 </body>
 </html>
