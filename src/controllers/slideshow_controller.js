@@ -4,7 +4,8 @@ export default class extends Controller {
   static targets = [ "slide" ]
 
   initialize() {
-    this.showSlide(0)
+    const index = parseInt(this.data.get("index"))
+    this.showSlide(index)
   }
 
   next() {
