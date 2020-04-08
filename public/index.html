@@ -3,9 +3,35 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="main.css">
-  <script src="bundle.js" async></script>
+  <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+  <script>
+    (() => {
+      const application = Stimulus.Application.start()
+
+      application.register("hello", class extends Stimulus.Controller {
+        static get targets() {
+          return [ "name" ]
+        }
+
+        connect() {
+          console.log("Hello, Stimulus!", this.element)
+        }
+
+        greet() {
+          console.log(`Hello, ${this.name}!`)
+        }
+
+        get name() {
+          return this.nameTarget.value
+        }
+      })
+    })()
+  </script>
 </head>
 <body>
-  <h1 data-controller="example"></h1>
+  <div data-controller="hello">
+    <input data-target="hello.name" type="text">
+    <button data-action="click->hello#greet">Greet</button>
+  </div>
 </body>
 </html>
