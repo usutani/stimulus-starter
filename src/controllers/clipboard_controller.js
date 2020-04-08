@@ -9,7 +9,8 @@ export default class extends Controller {
     }
   }
 
-  copy() {
+  copy(event) {
+    event.preventDefault()
     this.sourceTarget.select()
     document.execCommand("copy")
   }
